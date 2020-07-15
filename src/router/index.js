@@ -7,17 +7,43 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/Login.vue")
+  },
+  {
+    path: "/register",
+    name: "register",
+    component: () => import("@/views/Register.vue")
+  },
+  {
+    path: "/settings",
+    name: "settings",
+    component: () => import("@/views/Settings.vue")
+  },
+  {
+    path: "/editor",
+    name: "editor_new",
+    component: () => import("@/views/ArticleCreate.vue")
+  },
+  {
+    path: "/editor/:article-slug",
+    name: "editor_edit",
+    component: () => import("@/views/ArticleEdit.vue")
+  },
+  {
+    path: "/editor/article/:article-slug",
+    name: "article",
+    component: () => import("@/views/Article.vue")
+  },
+  {
+    path: "/:username",
+    name: "profile",
+    component: () => import("@/views/Profile.vue")
   }
 ];
 
