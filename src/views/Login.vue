@@ -9,7 +9,7 @@
           </p>
 
           <ul class="error-messages">
-            <li v-for="error in this.errors" v-bind:key="error">
+            <li v-for="error in errors" :key="error.id">
               {{ error.message }}
             </li>
           </ul>

@@ -7,21 +7,26 @@
           <!-- Add "active" class when you're on that page" -->
           <a class="nav-link active" href="">Home</a>
         </li>
-        <li class="nav-item">
+        <li v-if="username" class="nav-item">
           <a class="nav-link" href="">
             <i class="ion-compose"></i>&nbsp;New Post
           </a>
         </li>
-        <li class="nav-item">
+        <li v-if="username" class="nav-item">
           <router-link class="nav-link" to="/settings">
             <i class="ion-gear-a"></i>&nbsp;Settings
           </router-link>
         </li>
-        <li class="nav-item">
+        <li v-if="username == null" class="nav-item">
           <router-link to="/login" class="nav-link"> Sign in</router-link>
         </li>
-        <li class="nav-item">
+        <li v-if="username == null" class="nav-item">
           <router-link to="/register" class="nav-link"> Sign up</router-link>
+        </li>
+        <li v-if="username" class="nav-item">
+          <router-link to="`/@${username}`" class="nav-link">
+            {{ username }}</router-link
+          >
         </li>
       </ul>
     </div>
@@ -37,4 +42,3 @@ export default {
   }
 };
 </script>
->
